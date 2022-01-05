@@ -110,8 +110,8 @@ export default class RootView extends ComponentBase<RootViewProps, RootViewState
             entries: [
                 {
                     img: ImageSource.caru1,
-                    imgText: 'Visual Media Market',
-                    title: " Llegue a ser miembro de la comunidad Cultural Spaces Booking",
+                    imgText: 'Marketplace',
+                    title: " Llegue a ser miembro de la comunidad ",
                     content: 'Busca entre los negocios afiliados tu favorito'
                 },
                 {

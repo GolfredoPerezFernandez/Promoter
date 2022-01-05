@@ -474,9 +474,9 @@ export const LoginHook = ({
 
       setCargando(false)
     } catch (error) {
+      setCargando(false)
       CurrentUserStore.setLogin(false)
 
-      setCargando(false)
       return
     }
 

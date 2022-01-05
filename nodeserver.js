@@ -48,8 +48,8 @@ function handler(request, response) {
     var knownHosts = [
         'localhost:5000',
         'localhost',
-        'culturalspacesbooking.herokuapp.com',
-        'http://culturalspacesbooking.herokuapp.com/',
+        'promoterdapp.herokuapp.com',
+        'http://promoterdapp.herokuapp.com/',
     ];
 
     if (!_.includes(knownHosts, request.headers.host)) {

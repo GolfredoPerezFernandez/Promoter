@@ -181,10 +181,10 @@ export default class TopBarComposite extends ComponentBase<TopBarCompositeProps,
                     <RX.View onPress={() => NavContextStore.navigateToTodoList(undefined, false, true)} style={{ width: 350, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
                         <RX.Text style={_styles.logoText}>
 
-                            {'Hyper'}
+                            {'Promoter'}
                         </RX.Text> <RX.Text style={_styles.logoText2}>
 
-                            {'Chain'}
+                            {'DAPP'}
                         </RX.Text>
                     </RX.View>
 

@@ -2,42 +2,42 @@ export const translate={
     login:{   
               español:{
                   Title1:"Este puede ser el negocio para ti.",
-                  content:"Cultural Spaces Booking es un proyecto que tiene por objetivo establecer un vinculo entre las Culturas mediante una plataforma para el intercambio de activos digitales videos, imagenes, gifs, books, pdf.",               
+                  content:" es un proyecto que tiene por objetivo establecer un vinculo entre las Culturas mediante una plataforma para el intercambio de activos digitales videos, imagenes, gifs, books, pdf.",               
                   ButtonAccess:"Acceder"
               },
               english:{
                 Title1:"This could be the bussiness for you.",
-                content:"Cultural Spaces Booking is a project which aims to establish a link between Cultures through digital innovation.",               
+                content:"is a project which aims to establish a link between Cultures through digital innovation.",               
                 ButtonAccess:"Access"
               },
               french:{
                 Title1:"Este puede ser el negocio para ti.",
-                content:"Cultural Spaces Booking est un projet qui vise à établir un lien entre les Cultures à travers l'innovation numérique.",               
+                content:" est un projet qui vise à établir un lien entre les Cultures à travers l'innovation numérique.",               
                 ButtonAccess:"Access"
               }},
       home:{
                 español:{
                     Title1:"Este puede ser el negocio para ti.",
-                    content:"Cultural Spaces Booking es un proyecto que tiene por objetivo establecer un vinculo entre las Culturas mediante una plataforma para el intercambio de activos digitales videos, imagenes, gifs, books, pdf.",               
+                    content:" es un proyecto que tiene por objetivo establecer un vinculo entre las Culturas mediante una plataforma para el intercambio de activos digitales videos, imagenes, gifs, books, pdf.",               
                     ButtonAccess:"Acceder"
                 },
                 english:{
                 Title1:"This could be the bussiness for you.",
-                content:"Cultural Spaces Booking is a project which aims to establish a link between Cultures through digital innovation.",               
+                content:"is a project which aims to establish a link between Cultures through digital innovation.",               
                 ButtonAccess:"Access"
                 },
                 french:{
                 Title1:"Este puede ser el negocio para ti.",
-                content:"Cultural Spaces Booking est un projet qui vise à établir un lien entre les Cultures à travers l'innovation numérique.",               
+                content:" est un projet qui vise à établir un lien entre les Cultures à travers l'innovation numérique.",               
                 ButtonAccess:"Access"
                 }},
         about:{
               español:{
-                 title:"Sobre Cultural Spaces Booking",
+                 title:"Sobre",
                  content:"Nuestra misión es trasmitir nuestra pasión y anticipar el impacto de los desafíos contemporáneos para nuestros colaboradores. ",
               },
               english:{                 
-                title:"About Cultural Spaces Booking",
+                title:"About ",
                 content:"Inspired by the possibilities offered by new technologies, we believe that the creation of a new field of sensory experience can promote exchanges. We have also decided to support both amateurs and professionals of artistic and cultural production in the dissemination of their artistic and cultural productions.",
               },
               french:{                 
@@ -229,7 +229,7 @@ export const translate={
                                                        item1:"Terms & Privacy",
                                                        item2:"If you live in the European Union, the company that is responsible for your information under this Privacy Policy is:",
                                                        item3:"The main reason we use your information is to deliver and improve our services. Additionally, we use your info to help keep you safe and to provide you with advertising that may be of interest to you.",
-                                                     item4:"Cultural Spaces Booking 1 Rue des touristes 42 000 St Etienne France",
+                                                     item4:"",
                                                        item5:"Socios",
                                                        item6:"Documentacion",
                                                      },
@@ -237,7 +237,7 @@ export const translate={
                                                       item1:"Terms & Privacy",
                                                       item2:"If you live in the European Union, the company that is responsible for your information under this Privacy Policy is:",
                                                       item3:"The main reason we use your information is to deliver and improve our services. Additionally, we use your info to help keep you safe and to provide you with advertising that may be of interest to you.",
-                                                      item4:"Cultural Spaces Booking 1 Rue des touristes 42 000 St Etienne France",
+                                                      item4:"",
                                                       item5:"Partners",
                                                       item6:"Documentacion",
                                                      },
@@ -245,7 +245,7 @@ export const translate={
                                                       item1:"Terms & Privacy",
                                                       item2:"If you live in the European Union, the company that is responsible for your information under this Privacy Policy is:",
                                                       item3:"The main reason we use your information is to deliver and improve our services. Additionally, we use your info to help keep you safe and to provide you with advertising that may be of interest to you.",
-                                                      item4:"Cultural Spaces Booking 1 Rue des touristes 42 000 St Etienne France",
+                                                      item4:"",
                                                       item5:"Les partenaires",
                                                       item6:"Docs",
                                                      }}, 
