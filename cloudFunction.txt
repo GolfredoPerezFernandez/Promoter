@@ -1,0 +1,181 @@
+
+Moralis.Cloud.define("getUserItems", async (request) => {
+  const query = new Moralis.Query("Item");  
+  query.equalTo("owner", request.params.owner);
+
+  const queryResults = await query.find();
+  const results=[]
+  for (let i = 0; i < queryResults.length; ++i) {
+	results.push({
+    "id":queryResults[i].id,
+    "name":queryResults[i].attributes.name,
+    "description":queryResults[i].attributes.description,
+    "owner":queryResults[i].attributes.owner,
+      "forSale":queryResults[i].attributes.forSale,
+    "uri":queryResults[i].attributes.uri,
+    "ownerEmail":queryResults[i].attributes.ownerEmail,
+    "ownerId":queryResults[i].attributes.ownerId,
+    "type":queryResults[i].attributes.type,
+    "price":queryResults[i].attributes.price,
+      
+    })
+  }
+  return results
+});
+
+Moralis.Cloud.define("getAllItems", async (request) => {
+  const query = new Moralis.Query("Item");  
+	query.equalTo("forSale",true)
+  const queryResults = await query.find();
+  const results=[]
+  for (let i = 0; i < queryResults.length; ++i) {
+	results.push({
+    "id":queryResults[i].id,
+    "name":queryResults[i].attributes.name,
+    "description":queryResults[i].attributes.description,
+    "owner":queryResults[i].attributes.owner,
+      "forSale":queryResults[i].attributes.forSale,
+    "uri":queryResults[i].attributes.uri,
+    "ownerEmail":queryResults[i].attributes.ownerEmail,
+    "ownerId":queryResults[i].attributes.ownerId,
+    "type":queryResults[i].attributes.type,
+    "price":queryResults[i].attributes.price,
+    })
+  }
+  return results
+});
+
+Moralis.Cloud.define("getUserChats", async (request) => {
+    const query = new Moralis.Query("Chat");  
+  
+	query.equalTo("sender",request.params.username)    
+	query.equalTo("receiver",request.params.owner)  
+  
+    const queryResults = await query.find();
+    const results=[]
+    for (let i = 0; i < queryResults.length; ++i) {
+      results.push({
+      "id":queryResults[i].id,
+      "receiver":queryResults[i].attributes.receiver,
+      "receiverId":queryResults[i].attributes.receiverId,
+      "senderId":queryResults[i].attributes.senderId,
+      "sender":queryResults[i].attributes.sender,
+      "messages":queryResults[i].attributes.messages,
+      })
+  	}
+  
+  if(queryResults.length==0){
+  
+    const query2 = new Moralis.Query("Chat");  
+  
+	query2.equalTo("receiver",request.params.username)
+	query2.equalTo("sender",request.params.owner)
+  
+  
+    const queryResults2 = await query2.find();
+    for (let i = 0; i < queryResults2.length; ++i) {
+      results.push({
+      "id":queryResults2[i].id,
+      "receiver":queryResults2[i].attributes.receiver,
+      "receiverId":queryResults2[i].attributes.receiverId,
+      "senderId":queryResults2[i].attributes.senderId,
+      "sender":queryResults2[i].attributes.sender,
+      "messages":queryResults2[i].attributes.messages,
+      })
+  	}
+  
+  }
+   return  results
+});
+
+Moralis.Cloud.define("getAllChatsForUser", async (request) => {
+    const query = new Moralis.Query("Chat");  
+  
+	query.equalTo("sender",request.params.username)  
+  
+    const queryResults = await query.find();
+    var results=[]
+    for (let i = 0; i < queryResults.length; ++i) {
+      results.push({
+      "id":queryResults[i].id,
+      "receiver":queryResults[i].attributes.receiver,
+      "sender":queryResults[i].attributes.sender,
+      "messages":queryResults[i].attributes.messages,
+      })
+  	}
+  if(results==undefined||results==[]||results.length==0){
+  
+    const query2 = new Moralis.Query("Chat");  
+  
+	query2.equalTo("receiver",request.params.username)
+  
+  
+    const queryResults2 = await query2.find();
+    for (let i = 0; i < queryResults2.length; ++i) {
+      results.push({
+      "id":queryResults2[i].id,
+      "receiver":queryResults2[i].attributes.receiver,
+      "sender":queryResults2[i].attributes.sender,
+      "receiverId":queryResults2[i].attributes.ownerId,
+      "senderId":queryResults2[i].attributes.userId,
+      "messages":queryResults2[i].attributes.messages,
+      })
+  	}
+  
+  }
+    return results
+});
+Moralis.Cloud.define("validateEmail", async (request) => {
+  Moralis.Cloud.sendEmail({
+    to:request.user.get("email"),
+    templateId:'d-f37770a997dc413faa32511945272f1c',
+    subject: 'Mail Validation',
+    dynamic_template_data:{
+    name:request.user.get("email"),
+      code:request.params.username,
+    },
+  })
+  return request.params.email
+});
+
+Moralis.Cloud.define("addMessage", async(request) => {
+  const query = new Moralis.Query("Chat");  
+  
+	query.equalTo("sender",request.params.username)  
+  
+    const queryResults = await query.first();
+    
+  if(queryResults==undefined||queryResults==[]||queryResults.length==0){
+  
+    const query2 = new Moralis.Query("Chat");  
+  
+	query2.equalTo("receiver",request.params.username)
+  
+  
+    const queryResults2 = await query2.first();
+   
+  queryResults2.set("messages",[...request.params.oldMenssages,request.params.newMessage])
+    queryResults2.save()
+  
+  }else {
+  queryResults.set("messages",[...request.params.oldMenssages,request.params.newMessage])
+    queryResults.save()
+  }
+  
+});
+
+Moralis.Cloud.define("addItem", async(request) => {
+ 
+    const Item = Moralis.Object.extend("Item")
+    const item = new Item()
+    item.set("price", request.params.price)
+    item.set("type", request.params.type)
+    item.set("uri", request.params.uri)
+    item.set("name", request.params.name)
+    item.set("description", request.params.description)
+    item.set("owner", request.params.owner)
+    item.set("ownerEmail", request.params.ownerEmail)
+    item.set("ownerId", request.params.ownerId)
+    item.set("forSale", request.params.forSale)
+    return await item.save()  
+});
